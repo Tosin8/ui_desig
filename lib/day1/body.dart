@@ -78,4 +78,12 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
       ]))),
     );
   }
+
+  Widget _indicator(bool isActive) {
+    return Expanded(
+        child: Container(
+      height: 4,
+      margin: const EdgeInsets.only(right: 5),
+    ));
+  }
 }
