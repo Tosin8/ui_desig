@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_design/day1/custom_carousel.dart';
 
+import 'day1/body.dart';
+
 void main() {
   runApp(const MyApp());
 }
