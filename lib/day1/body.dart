@@ -70,21 +70,44 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
                       children: [
                         Container(
                             width: 70,
+                            margin: const EdgeInsets.only(bottom: 60),
                             child: Row(
-                              children: [],
+                              children: _buildIndicator(),
                             ))
                       ],
                     )))),
+        Expanded(
+            child: Transform.translate(
+                offset: const Offset(0, -40),
+                child: Container(
+                  decoration: const BoxDecoration(color: Colors.white),
+                )))
       ]))),
     );
   }
 
   Widget _indicator(bool isActive) {
     return Expanded(
-        child: Container(
-            height: 4,
-            margin: const EdgeInsets.only(right: 5),
-            decoration: BoxDecoration(
-                color: isActive ? Colors.grey.shade800 : Colors.white)));
+      child: Container(
+        height: 4,
+        margin: const EdgeInsets.only(right: 5),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            color: isActive ? Colors.grey.shade800 : Colors.white),
+      ),
+    );
+  }
+
+  List<Widget> _buildIndicator() {
+    List<Widget> indicators = [];
+    for (int i = 0; i < products.length; i++) {
+      if (currentIndex == 1) {
+        indicators.add(_indicator(true));
+      } else {
+        indicators.add(_indicator(false));
+      }
+    }
+
+    return indicators;
   }
 }
