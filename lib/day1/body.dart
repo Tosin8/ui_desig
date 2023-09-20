@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'widget.dart';
+
 class Custom_Carousel extends StatefulWidget {
   const Custom_Carousel({super.key});
 
@@ -8,6 +10,28 @@ class Custom_Carousel extends StatefulWidget {
 }
 
 class _Custom_CarouselState extends State<Custom_Carousel> {
+  int currentIndex = 0;
+
+  void _next() {
+    setState(() {
+      if (currentIndex < products.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = currentIndex;
+      }
+    });
+  }
+
+  void _prev() {
+    setState(() {
+      if (currentIndex < products.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = currentIndex;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
