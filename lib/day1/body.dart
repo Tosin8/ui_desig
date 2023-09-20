@@ -48,6 +48,7 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
               }
             },
             child: Container(
+                width: double.infinity,
                 height: 500,
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -56,9 +57,24 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
                 ),
                 child: Container(
                     decoration: BoxDecoration(
-                        gradient: LinearGradient(colors: [
-                  Colors.grey.withOpacity(.9),
-                ]))))),
+                      gradient: LinearGradient(
+                        begin: Alignment.bottomRight,
+                        colors: [
+                          Colors.grey.shade700.withOpacity(.9),
+                          Colors.grey.withOpacity(.0),
+                        ],
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                            width: 70,
+                            child: Row(
+                              children: [],
+                            ))
+                      ],
+                    )))),
       ]))),
     );
   }

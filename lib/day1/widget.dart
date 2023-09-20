@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 // adding list of products.
 
 final List<List<String>> products = [
