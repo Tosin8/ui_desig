@@ -37,66 +37,57 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
     return SafeArea(
       child: Scaffold(
           // ignore: avoid_unnecessary_containers
-          body: Stack(children: [
-        Row(
-          children: [
-            Icon(
-              Icons.shopping_bag,
-            ),
-            Icon(Icons.shopping_bag_outlined),
-          ],
-        ),
-        Container(
-            child: Column(children: [
-          GestureDetector(
-              onHorizontalDragEnd: (DragEndDetails details) {
-                if (details.velocity.pixelsPerSecond.dx > 0) {
-                  _prev();
-                } else if (details.velocity.pixelsPerSecond.dx < 0) {
-                  _next();
-                }
-              },
-              child: Container(
-                  width: double.infinity,
-                  height: 400,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(products[currentIndex][0]),
-                        fit: BoxFit.cover),
-                  ),
-                  child: Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.bottomRight,
-                          colors: [
-                            Colors.grey.shade700.withOpacity(.9),
-                            Colors.grey.withOpacity(.0),
-                          ],
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                              width: 70,
-                              margin: const EdgeInsets.only(bottom: 60),
-                              child: Row(
-                                children: _buildIndicator(),
-                              ))
+          body: Container(
+              child: Column(children: [
+        GestureDetector(
+            onHorizontalDragEnd: (DragEndDetails details) {
+              if (details.velocity.pixelsPerSecond.dx > 0) {
+                _prev();
+              } else if (details.velocity.pixelsPerSecond.dx < 0) {
+                _next();
+              }
+            },
+            child: Container(
+                width: double.infinity,
+                height: 450,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(products[currentIndex][0]),
+                      fit: BoxFit.cover),
+                ),
+                child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.bottomRight,
+                        colors: [
+                          Colors.grey.shade700.withOpacity(.9),
+                          Colors.grey.withOpacity(.0),
                         ],
-                      )))),
-          Expanded(
-              child: Transform.translate(
-                  offset: const Offset(0, -40),
-                  child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(30),
-                      decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(30),
-                              topRight: Radius.circular(30))),
-                      child: Column(
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                            width: 70,
+                            margin: const EdgeInsets.only(bottom: 60),
+                            child: Row(
+                              children: _buildIndicator(),
+                            ))
+                      ],
+                    )))),
+        Expanded(
+            child: Transform.translate(
+                offset: const Offset(0, -40),
+                child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(30),
+                    decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30))),
+                    child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -132,7 +123,7 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
                                       size: 18, color: Colors.yellow.shade700),
                                 ],
                               ),
-                              SizedBox(width: 30),
+                              const SizedBox(width: 30),
                               const Text(
                                 '(4.2/80 reviews)',
                                 style:
@@ -140,47 +131,38 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
                               )
                             ],
                           ),
-                          SizedBox(height: 15),
+                          const SizedBox(height: 15),
                           Expanded(
-                              child: Column(
-                            children: [
-                              Align(
-                                child: Container(
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                      color: Colors.yellow.shade700,
-                                      borderRadius: BorderRadius.circular(8),
+                            child: Align(
+                              child: Container(
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                    color: Colors.yellow.shade700,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: const Center(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.shopping_bag_outlined,
+                                          color: Colors.white,
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          'ADD TO CART',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white),
+                                        ),
+                                      ],
                                     ),
-                                    child: Center(
-                                      child: Text(
-                                        'ADD TO CART',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )),
-                              ),
-                              SizedBox(height: 12),
-                              Align(
-                                child: Container(
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                      color: Colors.blueAccent.shade700,
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'SAVE ITEM',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )),
-                              ),
-                            ],
-                          ))
-                        ],
-                      ))))
-        ])),
-      ])),
+                                  )),
+                            ),
+                          ),
+                        ]))))
+      ]))),
     );
   }
 
