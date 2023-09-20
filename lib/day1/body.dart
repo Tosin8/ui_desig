@@ -80,14 +80,53 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
             child: Transform.translate(
                 offset: const Offset(0, -40),
                 child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(20),
-                  decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30))),
-                )))
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(30),
+                    decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30))),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          products[currentIndex][1],
+                          style: TextStyle(
+                            color: Colors.grey.shade800,
+                            fontSize: 42,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          children: [
+                            Text(
+                              products[currentIndex][2],
+                              style: TextStyle(
+                                  color: Colors.blue.shade700,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 23),
+                            ),
+                            const SizedBox(width: 10),
+                            Row(
+                              children: [
+                                Icon(Icons.star,
+                                    size: 18, color: Colors.yellow.shade700),
+                                Icon(Icons.star,
+                                    size: 18, color: Colors.yellow.shade700),
+                                Icon(Icons.star,
+                                    size: 18, color: Colors.yellow.shade700),
+                                Icon(Icons.star,
+                                    size: 18, color: Colors.yellow.shade700),
+                                Icon(Icons.star_half,
+                                    size: 18, color: Colors.yellow.shade700),
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    ))))
       ]))),
     );
   }
