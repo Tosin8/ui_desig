@@ -37,97 +37,150 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
     return SafeArea(
       child: Scaffold(
           // ignore: avoid_unnecessary_containers
-          body: Container(
-              child: Column(children: [
-        GestureDetector(
-            onHorizontalDragEnd: (DragEndDetails details) {
-              if (details.velocity.pixelsPerSecond.dx > 0) {
-                _prev();
-              } else if (details.velocity.pixelsPerSecond.dx < 0) {
-                _next();
-              }
-            },
-            child: Container(
-                width: double.infinity,
-                height: 500,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(products[currentIndex][0]),
-                      fit: BoxFit.cover),
-                ),
-                child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.bottomRight,
-                        colors: [
-                          Colors.grey.shade700.withOpacity(.9),
-                          Colors.grey.withOpacity(.0),
-                        ],
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                            width: 70,
-                            margin: const EdgeInsets.only(bottom: 60),
-                            child: Row(
-                              children: _buildIndicator(),
-                            ))
-                      ],
-                    )))),
-        Expanded(
-            child: Transform.translate(
-                offset: const Offset(0, -40),
-                child: Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(30),
-                    decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30))),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          products[currentIndex][1],
-                          style: TextStyle(
-                            color: Colors.grey.shade800,
-                            fontSize: 42,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Text(
-                              products[currentIndex][2],
-                              style: TextStyle(
-                                  color: Colors.blue.shade700,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 23),
-                            ),
-                            const SizedBox(width: 10),
-                            Row(
-                              children: [
-                                Icon(Icons.star,
-                                    size: 18, color: Colors.yellow.shade700),
-                                Icon(Icons.star,
-                                    size: 18, color: Colors.yellow.shade700),
-                                Icon(Icons.star,
-                                    size: 18, color: Colors.yellow.shade700),
-                                Icon(Icons.star,
-                                    size: 18, color: Colors.yellow.shade700),
-                                Icon(Icons.star_half,
-                                    size: 18, color: Colors.yellow.shade700),
-                              ],
-                            )
+          body: Stack(children: [
+        Row(
+          children: [
+            Icon(
+              Icons.shopping_bag,
+            ),
+            Icon(Icons.shopping_bag_outlined),
+          ],
+        ),
+        Container(
+            child: Column(children: [
+          GestureDetector(
+              onHorizontalDragEnd: (DragEndDetails details) {
+                if (details.velocity.pixelsPerSecond.dx > 0) {
+                  _prev();
+                } else if (details.velocity.pixelsPerSecond.dx < 0) {
+                  _next();
+                }
+              },
+              child: Container(
+                  width: double.infinity,
+                  height: 400,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(products[currentIndex][0]),
+                        fit: BoxFit.cover),
+                  ),
+                  child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomRight,
+                          colors: [
+                            Colors.grey.shade700.withOpacity(.9),
+                            Colors.grey.withOpacity(.0),
                           ],
-                        )
-                      ],
-                    ))))
-      ]))),
+                        ),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                              width: 70,
+                              margin: const EdgeInsets.only(bottom: 60),
+                              child: Row(
+                                children: _buildIndicator(),
+                              ))
+                        ],
+                      )))),
+          Expanded(
+              child: Transform.translate(
+                  offset: const Offset(0, -40),
+                  child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(30),
+                      decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(30))),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            products[currentIndex][1],
+                            style: TextStyle(
+                              color: Colors.grey.shade800,
+                              fontSize: 42,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            children: [
+                              Text(
+                                products[currentIndex][2],
+                                style: TextStyle(
+                                    color: Colors.blue.shade700,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 23),
+                              ),
+                              const SizedBox(width: 20),
+                              Row(
+                                children: [
+                                  Icon(Icons.star,
+                                      size: 18, color: Colors.yellow.shade700),
+                                  Icon(Icons.star,
+                                      size: 18, color: Colors.yellow.shade700),
+                                  Icon(Icons.star,
+                                      size: 18, color: Colors.yellow.shade700),
+                                  Icon(Icons.star,
+                                      size: 18, color: Colors.yellow.shade700),
+                                  Icon(Icons.star_half,
+                                      size: 18, color: Colors.yellow.shade700),
+                                ],
+                              ),
+                              SizedBox(width: 30),
+                              const Text(
+                                '(4.2/80 reviews)',
+                                style:
+                                    TextStyle(color: Colors.grey, fontSize: 16),
+                              )
+                            ],
+                          ),
+                          SizedBox(height: 15),
+                          Expanded(
+                              child: Column(
+                            children: [
+                              Align(
+                                child: Container(
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      color: Colors.yellow.shade700,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'ADD TO CART',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    )),
+                              ),
+                              SizedBox(height: 12),
+                              Align(
+                                child: Container(
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      color: Colors.blueAccent.shade700,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'SAVE ITEM',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    )),
+                              ),
+                            ],
+                          ))
+                        ],
+                      ))))
+        ])),
+      ])),
     );
   }
 
