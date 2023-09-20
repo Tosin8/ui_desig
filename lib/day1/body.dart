@@ -49,10 +49,16 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
             },
             child: Container(
                 height: 500,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/3_500.jpg'),
-                        fit: BoxFit.cover)))),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(products[currentIndex][0]),
+                      fit: BoxFit.cover),
+                ),
+                child: Container(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(colors: [
+                  Colors.grey.withOpacity(.9),
+                ]))))),
       ]))),
     );
   }
