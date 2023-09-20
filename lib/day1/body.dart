@@ -80,7 +80,13 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
             child: Transform.translate(
                 offset: const Offset(0, -40),
                 child: Container(
-                  decoration: const BoxDecoration(color: Colors.white),
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(20),
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30))),
                 )))
       ]))),
     );
