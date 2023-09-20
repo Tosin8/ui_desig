@@ -24,10 +24,10 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
 
   void _prev() {
     setState(() {
-      if (currentIndex < products.length - 1) {
-        currentIndex++;
+      if (currentIndex > 0) {
+        currentIndex--;
       } else {
-        currentIndex = currentIndex;
+        currentIndex = 0;
       }
     });
   }
@@ -42,7 +42,10 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
         GestureDetector(
             onHorizontalDragEnd: (DragEndDetails details) {
               if (details.velocity.pixelsPerSecond.dx > 0) {
-              } else if (details.velocity.pixelsPerSecond.dx < 0) {}
+                _prev();
+              } else if (details.velocity.pixelsPerSecond.dx < 0) {
+                _next();
+              }
             },
             child: Container(
                 height: 500,
