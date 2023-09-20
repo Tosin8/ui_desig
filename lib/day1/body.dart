@@ -11,12 +11,18 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(image: 
-                AssetImage('assetName'))
-              ),
-          ]
+        body: Container(
+            child: Column(children: [
+      GestureDetector(
+          onHorizontalDragEnd: (DragEndDetails details) {
+            if (details.velocity.pixelsPerSecond.dx > 0) {
+            } else if (details.velocity.pixelsPerSecond.dx < 0) {}
+          },
+          child: Container(
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/1.jpg'),
+                      fit: BoxFit.cover)))),
+    ])));
+  }
+}
