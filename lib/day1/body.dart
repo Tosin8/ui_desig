@@ -94,7 +94,7 @@ class _Custom_CarouselState extends State<Custom_Carousel> {
                             products[currentIndex][1],
                             style: TextStyle(
                               color: Colors.grey.shade800,
-                              fontSize: 42,
+                              fontSize: 30,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
